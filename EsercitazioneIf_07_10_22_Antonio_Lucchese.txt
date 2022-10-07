@@ -1,0 +1,72 @@
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        const string NOME = "Antonio";
+        const string COGNOME = "Lucchese";
+        string nome, cognome, nome1, cognome1;
+        int id, id1;
+
+        input();
+        
+        void input()        //Metodo usato per l'input di nome e cognome
+        {
+            Console.WriteLine("Inserire il nome: ");
+            nome = Console.ReadLine();
+
+            Console.WriteLine("Inserire il cognome: ");
+            cognome = Console.ReadLine();
+        }
+
+        void inputId()      //Metodo usato per l'input dell'Id
+        {
+            Console.WriteLine("Inserire l'ID: ");
+            id = Convert.ToInt32(Console.ReadLine());
+        }
+
+        void reInput()      //Metodo usato per la verifica dei dati inseriti
+        {
+            Console.WriteLine("Per sicurezza re-inserire i dati");
+                
+            Console.WriteLine("Inserire il nome: ");
+            nome1 = Console.ReadLine();
+
+            Console.WriteLine("Inserire il nome: ");
+            cognome1 = Console.ReadLine();
+
+            Console.WriteLine("Inserire l'ID: ");
+            id1 = Convert.ToInt32(Console.ReadLine());
+        }
+        
+        if(nome==NOME && cognome==COGNOME)  //Controlla se il nome e il cognome inseriti da tastiera corrispono a quelli dichiarati
+        {
+            
+            inputId();
+        
+            if(id==134567)          //Controlla se l'Id inserito da tastiera corrisponde a 134567
+            {
+                reInput();
+
+                if(nome1 == NOME || cognome1 == COGNOME || id1 == 134567)   //Controlla se i dati inseriti da tastiera una seconda volta corrispondono a quelli dichiarati
+                {
+                    Console.WriteLine("Accesso effettuato con successo!");
+                }
+                else
+                {
+                   Console.WriteLine("Credenziali errate!");
+                   reInput();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Credenziali errate!");
+                inputId();
+            }
+        }
+        else
+        {
+            Console.WriteLine("Credenziali errate!");
+            input();
+        }
+    }
+}
