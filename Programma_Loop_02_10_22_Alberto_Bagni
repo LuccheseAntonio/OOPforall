@@ -7,7 +7,9 @@ internal class Program
          Console.WriteLine("Inserisci nome e cognome");
          string parola = Console.ReadLine(); 
          string s = "Alberto Bagni";
-      
+         string giusto = "giusto";
+         string c = "";
+      do{
          if (parola == s)
          {
             Console.WriteLine($"richiedi l'ID");
@@ -19,15 +21,20 @@ internal class Program
                  Console.WriteLine("Inserisci un nuovo ID"); //stampa la richiesta
                  int y2 = Convert.ToInt32(Console.ReadLine());
                  Console.WriteLine($"Nuovo nome utente é {parola_nuova} e nuova Password è {y2}");
+                 break;
             }
             else
             {
                Console.WriteLine("Password non riconosciuta");
+               c= "sbagliato";
             }
          }
          else 
          {
             Console.WriteLine($"Il soggetto non è stato identidicato");
+            c = "sbagliato";
          }
+
+      } while(c == "giusto");
        } 
 }
